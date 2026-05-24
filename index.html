@@ -1,120 +1,271 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Switchers - Course Approval Bot</title>
+
 <style>
-body {
+
+body{
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #e8f0ff, #f9f3ff);
-    text-align: center;
-    padding: 20px;
-    color: #1f2937;
+    margin:0;
+    padding:0;
+    background: linear-gradient(135deg,#f3f7fb,#dfefff);
+    color:#1f2937;
 }
 
-.container {
-    max-width: 650px;
-    margin: auto;
-    background: #ffffff;
-    padding: 28px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(80, 90, 130, 0.18);
-    border-top: 8px solid #6c63ff;
+.header{
+    background:white;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
 
-h1 {
-    color: #3f3d9b;
-    font-size: 36px;
-    margin-bottom: 8px;
+.header img{
+    width:250px;
+    margin-bottom:10px;
 }
 
-p {
-    color: #4b5563;
-    font-size: 17px;
+.header h1{
+    margin:0;
+    color:#7a0019;
 }
 
-h3 {
-    color: #374151;
-    margin-top: 25px;
+.container{
+    max-width:700px;
+    margin:40px auto;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
 }
 
-select, input, textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border-radius: 12px;
-    border: 1px solid #c7d2fe;
-    background: #f8fafc;
-    font-size: 15px;
-    box-sizing: border-box;
+h2{
+    color:#046c8c;
 }
 
-select:focus, input:focus, textarea:focus {
-    outline: none;
-    border-color: #6c63ff;
-    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15);
+select,
+button,
+input,
+textarea{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    margin-bottom:15px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    font-size:16px;
 }
 
-button {
-    width: 100%;
-    padding: 13px;
-    margin: 12px 0;
-    border: none;
-    border-radius: 14px;
-    background: linear-gradient(135deg, #6c63ff, #8b5cf6);
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
+button{
+    background:#046c8c;
+    color:white;
+    border:none;
+    cursor:pointer;
+    transition:0.3s;
 }
 
-button:hover {
-    background: linear-gradient(135deg, #5148d9, #7c3aed);
+button:hover{
+    background:#034e63;
 }
 
-.course {
-    text-align: right;
-    margin: 10px 0;
-    padding: 12px;
-    background: #f1f5f9;
-    border-radius: 12px;
-    border-right: 5px solid #6c63ff;
+.course{
+    background:#f8fafc;
+    padding:10px;
+    border-radius:10px;
+    margin-bottom:10px;
 }
 
-.results {
-    margin-top: 20px;
-    text-align: right;
-    background: #f8fafc;
-    padding: 15px;
-    border-radius: 14px;
+.results{
+    margin-top:20px;
 }
 
-.green {
-    color: #15803d;
-    font-weight: bold;
-    background: #dcfce7;
-    padding: 10px;
-    margin: 6px 0;
-    border-radius: 10px;
+.green{
+    color:green;
+    font-weight:bold;
 }
 
-.red {
-    color: #b91c1c;
-    font-weight: bold;
-    background: #fee2e2;
-    padding: 10px;
-    margin: 6px 0;
-    border-radius: 10px;
+.red{
+    color:red;
+    font-weight:bold;
 }
 
-.warning {
-    color: #92400e;
-    background: #fef3c7;
-    font-weight: bold;
-    padding: 10px;
-    border-radius: 10px;
-    margin-top: 10px;
+.footer{
+    text-align:center;
+    margin-top:40px;
+    color:#555;
+    font-size:14px;
 }
 
-#formBox {
-    background: #f3f4ff;
-    padding: 18px;
-    border-radius: 16px;
-    border: 1px solid #c7d2fe;
-}
 </style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<img src="https://upload.wikimedia.org/wikipedia/he/thumb/7/75/Hebrew_University_Logo.svg/1200px-Hebrew_University_Logo.svg.png">
+
+<h1>The Switchers</h1>
+
+<p>
+מערכת בדיקת פטורים לסטודנטים העוברים מכלכלה למנהל עסקים
+</p>
+
+</div>
+
+<div class="container">
+
+<h2>בחר פקולטה קודמת</h2>
+
+<select id="major">
+    <option value="eco">כלכלה</option>
+    <option value="other">אחר</option>
+</select>
+
+<div id="warning"></div>
+
+<h2>בחר קורסים שלמדת</h2>
+
+<div class="course">
+<input type="checkbox" id="c1">
+57121 — חדו"א א'
+</div>
+
+<div class="course">
+<input type="checkbox" id="c2">
+57122 — חדו"א ב'
+</div>
+
+<div class="course">
+<input type="checkbox" id="c3">
+57107 — מבוא לכלכלה א'
+</div>
+
+<div class="course">
+<input type="checkbox" id="c4">
+57108 — מבוא לכלכלה ב'
+</div>
+
+<div class="course">
+<input type="checkbox" id="c5">
+57340 — סטטיסטיקה א'
+</div>
+
+<div class="course">
+<input type="checkbox" id="c6">
+57341 — סטטיסטיקה ב'
+</div>
+
+<button onclick="checkExemptions()">
+בדוק פטורים
+</button>
+
+<div class="results" id="results"></div>
+
+<button onclick="openForm()">
+בקשת פטור חריגה
+</button>
+
+<div id="formBox" style="display:none;">
+
+<h2>טופס בקשת פטור</h2>
+
+<input placeholder="תעודת זהות">
+
+<input placeholder="קורס בכלכלה">
+
+<input placeholder="קורס במנהל עסקים">
+
+<textarea placeholder="הערות"></textarea>
+
+<button onclick="sendForm()">
+שלח בקשה
+</button>
+
+</div>
+
+</div>
+
+<div class="footer">
+
+The Hebrew University of Jerusalem © 2026
+
+</div>
+
+<script>
+
+function checkExemptions(){
+
+    let major = document.getElementById("major").value;
+
+    let results = document.getElementById("results");
+
+    let warning = document.getElementById("warning");
+
+    results.innerHTML = "";
+
+    if(major === "other"){
+
+        warning.innerHTML =
+        "<p class='red'>⚠️ כרגע המערכת תומכת רק במעבר מכלכלה למנהל עסקים</p>";
+
+        return;
+    }
+
+    warning.innerHTML = "";
+
+    let courses = [
+
+        {id:"c1", name:"מתמטיקה א'"},
+        {id:"c2", name:"מתמטיקה ב'"},
+        {id:"c3", name:"מבוא לכלכלה א'"},
+        {id:"c4", name:"מבוא לכלכלה ב'"},
+        {id:"c5", name:"סטטיסטיקה א'"},
+        {id:"c6", name:"סטטיסטיקה ב'"}
+
+    ];
+
+    courses.forEach(course => {
+
+        let checked =
+        document.getElementById(course.id).checked;
+
+        if(checked){
+
+            results.innerHTML +=
+            `<div class="green">✔ פטור מ ${course.name}</div>`;
+
+        }else{
+
+            results.innerHTML +=
+            `<div class="red">❌ אין פטור מ ${course.name}</div>`;
+        }
+
+    });
+
+    results.innerHTML +=
+    `<div class="red">❌ אין פטור מיסודות החשבונאות</div>`;
+
+    results.innerHTML +=
+    `<div class="red">❌ אין פטור מיסודות מדעי ההתנהגות</div>`;
+}
+
+function openForm(){
+
+    document.getElementById("formBox").style.display = "block";
+}
+
+function sendForm(){
+
+    alert("הבקשה נשלחה לבדיקה ✔");
+}
+
+</script>
+
+</body>
+</html>
