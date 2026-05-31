@@ -15,8 +15,6 @@ body{
     background: linear-gradient(135deg,#eef7f8,#dceef2);
 }
 
-/* HEADER */
-
 header{
     background:white;
     text-align:center;
@@ -41,8 +39,6 @@ header p{
     color:#333;
 }
 
-/* MAIN CARD */
-
 .container{
     max-width:950px;
     margin:60px auto;
@@ -52,15 +48,11 @@ header p{
     box-shadow:0 10px 35px rgba(0,0,0,0.08);
 }
 
-/* TITLES */
-
 h2{
     color:#006D6F;
     font-size:42px;
     margin-bottom:25px;
 }
-
-/* SELECT */
 
 select, input, textarea{
     width:100%;
@@ -76,8 +68,6 @@ select, input, textarea{
 textarea{
     min-height:120px;
 }
-
-/* COURSE BOX */
 
 .course-box{
     background:white;
@@ -103,8 +93,6 @@ textarea{
     accent-color:#8B0029;
 }
 
-/* BUTTON */
-
 button{
     width:100%;
     padding:24px;
@@ -122,8 +110,6 @@ button{
 button:hover{
     background:linear-gradient(135deg,#006D6F,#4FA9D3);
 }
-
-/* RESULTS */
 
 .results{
     margin-top:40px;
@@ -157,6 +143,32 @@ button:hover{
     border-radius:16px;
     margin-bottom:25px;
     font-size:22px;
+    font-weight:bold;
+}
+
+.advisor-card{
+    margin-top:40px;
+    padding:30px;
+    border-radius:24px;
+    background:linear-gradient(135deg,#eefafa,#ffffff);
+    border-right:10px solid #8B0029;
+    box-shadow:0 6px 18px rgba(0,0,0,0.08);
+    font-size:22px;
+    line-height:1.7;
+}
+
+.advisor-card h2{
+    color:#8B0029;
+    font-size:36px;
+    margin-bottom:20px;
+}
+
+.advisor-card ul{
+    margin-right:25px;
+}
+
+.advisor-highlight{
+    color:#006D6F;
     font-weight:bold;
 }
 
@@ -234,10 +246,12 @@ button:hover{
 </div>
 
 <button onclick="checkExemptions()">
-בדוק פטורים
+Check My Exemptions
 </button>
 
 <div id="results" class="results"></div>
+
+<div id="advisor"></div>
 
 <button onclick="openForm()">
 בקשת פטור חריגה למזכירות
@@ -276,9 +290,11 @@ function checkExemptions(){
     let major = document.getElementById("major").value;
     let warning = document.getElementById("warning");
     let results = document.getElementById("results");
+    let advisor = document.getElementById("advisor");
 
     results.innerHTML = "";
     warning.innerHTML = "";
+    advisor.innerHTML = "";
 
     if(major === "other"){
         warning.innerHTML =
@@ -297,25 +313,68 @@ function checkExemptions(){
         {id:"c6", name:"סטטיסטיקה ב׳"}
     ];
 
+    let approvedCount = 0;
+    let missingCourses = [];
+
     courses.forEach(course => {
 
         let checked = document.getElementById(course.id).checked;
 
         if(checked){
+            approvedCount++;
             results.innerHTML +=
             `<div class="green">✔ פטור אפשרי מ־${course.name}</div>`;
         } else {
+            missingCourses.push(course.name);
             results.innerHTML +=
             `<div class="red">❌ אין פטור אוטומטי מ־${course.name}</div>`;
         }
 
     });
 
+    missingCourses.push("יסודות החשבונאות");
+    missingCourses.push("יסודות מדעי ההתנהגות");
+
     results.innerHTML +=
     `<div class="red">❌ אין פטור אוטומטי מיסודות החשבונאות</div>`;
 
     results.innerHTML +=
     `<div class="red">❌ אין פטור אוטומטי מיסודות מדעי ההתנהגות</div>`;
+
+    advisor.innerHTML = `
+    <div class="advisor-card">
+        <h2>🤖 AI Academic Advisor</h2>
+
+        <p>
+        <span class="advisor-highlight">מספר הפטורים שאושרו:</span>
+        ${approvedCount}
+        </p>
+
+        <p>
+        <span class="advisor-highlight">קורסים שעדיין נדרשים להשלמה:</span>
+        </p>
+
+        <ul>
+            ${missingCourses.map(course => `<li>${course}</li>`).join("")}
+        </ul>
+
+        <p>
+        מומלץ להשלים את <b>יסודות מדעי ההתנהגות</b> במהלך שנה א',
+        מאחר שזהו קורס יסוד בתוכנית הלימודים.
+        </p>
+
+        <p>
+        יש להשלים את <b>יסודות החשבונאות</b> עד סוף שנה ב',
+        מאחר שאין לו קורס מקביל במסלול כלכלה.
+        </p>
+
+        <p>
+        <b>המלצה כללית:</b>
+        המערכת ממליצה להשלים תחילה את יסודות מדעי ההתנהגות
+        ולאחר מכן לתכנן את השלמת יסודות החשבונאות לפני סוף השנה השנייה.
+        </p>
+    </div>
+    `;
 }
 
 function openForm(){
@@ -324,13 +383,14 @@ function openForm(){
 
 function sendForm(){
 
+    let studentName = document.getElementById("studentName").value;
     let studentId = document.getElementById("studentId").value;
     let oldCourse = document.getElementById("oldCourse").value;
     let newCourse = document.getElementById("newCourse").value;
     let notes = document.getElementById("notes").value;
 
-    if(studentId === "" || oldCourse === "" || newCourse === ""){
-        alert("אנא מלא/י תעודת זהות ושמות קורסים לפני שליחת הבקשה");
+    if(studentName === "" || studentId === "" || oldCourse === "" || newCourse === ""){
+        alert("אנא מלא/י את כל השדות לפני שליחת הבקשה");
         return;
     }
 
@@ -339,6 +399,7 @@ function sendForm(){
     let body = encodeURIComponent(
         "שלום,\n\n" +
         "אבקש לבדוק בקשת פטור חריגה.\n\n" +
+        "שם הסטודנט: " + studentName + "\n" +
         "תעודת זהות: " + studentId + "\n" +
         "קורס שנלמד בכלכלה: " + oldCourse + "\n" +
         "קורס מבוקש במנהל עסקים: " + newCourse + "\n" +
