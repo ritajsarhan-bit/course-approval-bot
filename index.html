@@ -325,13 +325,30 @@ function sendForm(){
     let studentId = document.getElementById("studentId").value;
     let oldCourse = document.getElementById("oldCourse").value;
     let newCourse = document.getElementById("newCourse").value;
+    let notes = document.getElementById("notes").value;
 
     if(studentId === "" || oldCourse === "" || newCourse === ""){
         alert("אנא מלא/י תעודת זהות ושמות קורסים לפני שליחת הבקשה");
         return;
     }
 
-    alert("✔ הבקשה נשלחה למזכירות לבדיקה");
+    let subject = encodeURIComponent("בקשת פטור חריגה");
+
+    let body = encodeURIComponent(
+        "שלום,\n\n" +
+        "אבקש לבדוק בקשת פטור חריגה.\n\n" +
+        "תעודת זהות: " + studentId + "\n" +
+        "קורס שנלמד בכלכלה: " + oldCourse + "\n" +
+        "קורס מבוקש במנהל עסקים: " + newCourse + "\n" +
+        "הערות: " + notes + "\n\n" +
+        "תודה."
+    );
+
+    window.location.href =
+        "mailto:ritaj.sarhan@mail.huji.ac.il?subject=" +
+        subject +
+        "&body=" +
+        body;
 }
 
 </script>
