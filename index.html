@@ -19,9 +19,17 @@ header{
     padding:40px 20px;
     border-bottom:6px solid #8B0029;
 }
-header img{width:120px;}
-header h1{color:#8B0029;font-size:58px;}
-header p{font-size:24px;color:#333;}
+header img{
+    width:140px;
+}
+header h1{
+    color:#8B0029;
+    font-size:58px;
+}
+header p{
+    font-size:24px;
+    color:#333;
+}
 .container{
     max-width:950px;
     margin:60px auto;
@@ -30,7 +38,10 @@ header p{font-size:24px;color:#333;}
     border-radius:30px;
     box-shadow:0 10px 35px rgba(0,0,0,0.08);
 }
-h2{color:#006D6F;font-size:42px;}
+h2{
+    color:#006D6F;
+    font-size:42px;
+}
 select,input,textarea{
     width:100%;
     padding:20px;
@@ -40,7 +51,9 @@ select,input,textarea{
     margin-bottom:25px;
     box-sizing:border-box;
 }
-textarea{min-height:120px;}
+textarea{
+    min-height:120px;
+}
 .course-box{
     background:white;
     border-right:10px solid #00A7A0;
@@ -94,7 +107,9 @@ button{
     border-right:10px solid #8B0029;
     box-shadow:0 6px 18px rgba(0,0,0,0.08);
 }
-.advisor-card h2{color:#8B0029;}
+.advisor-card h2{
+    color:#8B0029;
+}
 #formBox{
     margin-top:40px;
     padding:30px;
@@ -102,14 +117,18 @@ button{
     background:#f8fbfc;
     border:2px solid #00A7A0;
 }
-.footer{text-align:center;color:#666;margin:40px 0;}
+.footer{
+    text-align:center;
+    color:#666;
+    margin:40px 0;
+}
 </style>
 </head>
 
 <body>
 
 <header>
-<img src="https://upload.wikimedia.org/wikipedia/he/thumb/e/e8/Hebrew_University_Logo.svg/512px-Hebrew_University_Logo.svg.png">
+<img src="./huji-logo.png?v=3" alt="HUJI Logo">
 <h1>The Switchers</h1>
 <p>מערכת בדיקת פטורים לסטודנטים העוברים מכלכלה למנהל עסקים</p>
 </header>
@@ -164,11 +183,11 @@ The Hebrew University of Jerusalem · Built for Vibe Coding
 const LOG_URL = "https://script.google.com/macros/s/AKfycbxHHvIvKYFVog2gKAJIav3o4sj0zeHQTMLi5xpPWkyA3SfcLGFXDZdtpHvQc9tje7g/exec";
 
 function sendLog(data){
-    fetch(LOG_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: {"Content-Type": "text/plain"},
-        body: JSON.stringify(data)
+    fetch(LOG_URL,{
+        method:"POST",
+        mode:"no-cors",
+        headers:{"Content-Type":"text/plain"},
+        body:JSON.stringify(data)
     });
 }
 
@@ -220,33 +239,29 @@ function checkExemptions(){
     results.innerHTML += `<div class="red">❌ אין פטור אוטומטי מיסודות החשבונאות</div>`;
     results.innerHTML += `<div class="red">❌ אין פטור אוטומטי מיסודות מדעי ההתנהגות</div>`;
 
-    let recommendation =
-        "המערכת ממליצה להשלים תחילה את יסודות מדעי ההתנהגות ולאחר מכן לתכנן את השלמת יסודות החשבונאות לפני סוף השנה השנייה.";
-
     advisor.innerHTML = `
-        <div class="advisor-card">
-            <h2>🤖 AI Academic Advisor</h2>
-            <p><b>מספר הפטורים שאושרו:</b> ${approvedCount}</p>
-            <p><b>קורסים שעדיין נדרשים להשלמה:</b></p>
-            <ul>${missingCourses.map(c => `<li>${c}</li>`).join("")}</ul>
-            <p>מומלץ להשלים את <b>יסודות מדעי ההתנהגות</b> במהלך שנה א', מאחר שזהו קורס יסוד בתוכנית הלימודים.</p>
-            <p>יש להשלים את <b>יסודות החשבונאות</b> עד סוף שנה ב', מאחר שאין לו קורס מקביל במסלול כלכלה.</p>
-            <p><b>המלצה כללית:</b> ${recommendation}</p>
-        </div>
+    <div class="advisor-card">
+        <h2>🤖 AI Academic Advisor</h2>
+        <p><b>מספר הפטורים שאושרו:</b> ${approvedCount}</p>
+        <p><b>קורסים שעדיין חסרים:</b></p>
+        <ul>${missingCourses.map(c => `<li>${c}</li>`).join("")}</ul>
+        <p>מומלץ להשלים את יסודות מדעי ההתנהגות במהלך שנה א'.</p>
+        <p>יש להשלים את יסודות החשבונאות עד סוף שנה ב'.</p>
+    </div>
     `;
 
     sendLog({
-        type: "event",
-        studentName: "not provided",
-        studentId: "not provided",
-        oldCourse: selectedCourses.join(", "),
-        newCourse: "exemption check",
-        result: "Approved: " + approvedCount + " | Missing: " + missingCourses.join(", ")
+        type:"event",
+        studentName:"not provided",
+        studentId:"not provided",
+        oldCourse:selectedCourses.join(", "),
+        newCourse:"exemption check",
+        result:"Approved: " + approvedCount
     });
 }
 
 function openForm(){
-    document.getElementById("formBox").style.display = "block";
+    document.getElementById("formBox").style.display="block";
 }
 
 function sendForm(){
@@ -258,40 +273,33 @@ function sendForm(){
     let notes = document.getElementById("notes").value;
 
     if(studentName === "" || studentId === "" || oldCourse === "" || newCourse === ""){
-        alert("אנא מלא/י את כל השדות לפני שליחת הבקשה");
+        alert("אנא מלא/י את כל השדות");
         return;
     }
 
     sendLog({
-        type: "event",
-        studentName: studentName,
-        studentId: studentId,
-        oldCourse: oldCourse,
-        newCourse: newCourse,
-        result: "Special exemption request submitted. Notes: " + notes
+        type:"event",
+        studentName,
+        studentId,
+        oldCourse,
+        newCourse,
+        result:"Special request submitted"
     });
 
     let subject = encodeURIComponent("בקשת פטור חריגה");
 
     let body = encodeURIComponent(
-        "שלום,\n\n" +
-        "אבקש לבדוק בקשת פטור חריגה.\n\n" +
-        "שם הסטודנט: " + studentName + "\n" +
+        "שם: " + studentName + "\n" +
         "תעודת זהות: " + studentId + "\n" +
-        "קורס שנלמד בכלכלה: " + oldCourse + "\n" +
-        "קורס מבוקש במנהל עסקים: " + newCourse + "\n" +
-        "הערות: " + notes + "\n\n" +
-        "תודה."
+        "קורס קודם: " + oldCourse + "\n" +
+        "קורס מבוקש: " + newCourse + "\n" +
+        "הערות: " + notes
     );
 
     window.location.href =
-        "mailto:ritaj.sarhan@mail.huji.ac.il?subject=" +
-        subject +
-        "&body=" +
-        body;
+    "mailto:ritaj.sarhan@mail.huji.ac.il?subject=" + subject + "&body=" + body;
 }
 
-/* Mouse Tracking */
 let lastMouseX = null;
 let lastMouseY = null;
 
@@ -303,12 +311,12 @@ document.addEventListener("mousemove", function(e){
 setInterval(function(){
     if(lastMouseX !== null && lastMouseY !== null){
         sendLog({
-            type: "mouse",
-            x: lastMouseX,
-            y: lastMouseY
+            type:"mouse",
+            x:lastMouseX,
+            y:lastMouseY
         });
     }
-}, 500);
+},500);
 
 </script>
 
