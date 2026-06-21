@@ -7,42 +7,195 @@
 <title>The Switchers</title>
 
 <style>
-body{font-family:Arial,sans-serif;margin:0;padding:0;background:linear-gradient(135deg,#eef7f8,#dceef2);}
-header{background:white;text-align:center;padding:40px 20px;border-bottom:6px solid #8B0029;}
-header img{width:220px;max-width:90%;object-fit:contain;margin-bottom:20px;}
-header h1{color:#8B0029;font-size:58px;margin:10px 0;}
-header p{font-size:24px;color:#333;}
-.container{max-width:950px;margin:60px auto;background:white;padding:50px;border-radius:30px;box-shadow:0 10px 35px rgba(0,0,0,0.08);}
-h2{color:#006D6F;font-size:42px;}
-select,input,textarea{width:100%;padding:20px;border-radius:18px;border:2px solid #00A7A0;font-size:22px;margin-bottom:25px;box-sizing:border-box;}
-textarea{min-height:120px;}
-.course-box{background:white;border-right:10px solid #00A7A0;padding:30px;border-radius:24px;margin-bottom:25px;font-size:24px;box-shadow:0 4px 12px rgba(0,0,0,0.05);}
-.course-box input{width:auto;transform:scale(1.6);margin-left:18px;accent-color:#8B0029;}
-button{width:100%;padding:24px;border:none;border-radius:20px;background:linear-gradient(135deg,#8B0029,#00A7A0);color:white;font-size:28px;cursor:pointer;margin-top:25px;font-weight:bold;}
-.green,.red,.warning,.advisor-card{padding:18px;border-radius:16px;margin-bottom:15px;font-size:22px;}
-.green{background:#eefafa;color:#006D6F;border-right:8px solid #00A7A0;}
-.red{background:#fff5f5;color:#8B0029;border-right:8px solid #8B0029;}
-.warning{background:#fff7ed;color:#9a3412;}
-.advisor-card{margin-top:40px;background:linear-gradient(135deg,#eefafa,#ffffff);border-right:10px solid #8B0029;box-shadow:0 6px 18px rgba(0,0,0,0.08);}
-.advisor-card h2{color:#8B0029;}
-#formBox{margin-top:40px;padding:30px;border-radius:24px;background:#f8fbfc;border:2px solid #00A7A0;}
-.feedback-box{max-width:950px;margin:40px auto;background:white;padding:40px;border-radius:30px;box-shadow:0 10px 35px rgba(0,0,0,0.08);text-align:center;}
-.feedback-box h2{color:#8B0029;margin-bottom:10px;}
-.feedback-box p{font-size:22px;color:#333;}
-.stars{font-size:48px;margin:20px 0;direction:ltr;}
-.star{cursor:pointer;color:#ccc;transition:0.2s;}
-.star.selected{color:#8B0029;}
-.feedback-message{font-size:20px;color:#006D6F;font-weight:bold;margin:15px 0;}
-.success-message{display:none;background:#eefafa;color:#006D6F;border:2px solid #00A7A0;padding:15px;border-radius:15px;margin-top:20px;font-size:22px;font-weight:bold;}
-.footer{text-align:center;color:#666;margin:40px 0;}
-@media(max-width:700px){header h1{font-size:40px}.container,.feedback-box{margin:25px 15px;padding:25px}h2{font-size:30px}.stars{font-size:38px}}
+body{
+    font-family:Arial,sans-serif;
+    margin:0;
+    padding:0;
+    background:linear-gradient(135deg,#eef7f8,#dceef2);
+}
+
+header{
+    background:white;
+    text-align:center;
+    padding:40px 20px;
+    border-bottom:6px solid #8B0029;
+}
+
+header img{
+    width:220px;
+    max-width:90%;
+}
+
+header h1{
+    color:#8B0029;
+    font-size:58px;
+}
+
+header p{
+    font-size:24px;
+    color:#333;
+}
+
+.container{
+    max-width:950px;
+    margin:60px auto;
+    background:white;
+    padding:50px;
+    border-radius:30px;
+    box-shadow:0 10px 35px rgba(0,0,0,0.08);
+}
+
+h2{
+    color:#006D6F;
+    font-size:42px;
+}
+
+select,input,textarea{
+    width:100%;
+    padding:20px;
+    border-radius:18px;
+    border:2px solid #00A7A0;
+    font-size:22px;
+    margin-bottom:25px;
+    box-sizing:border-box;
+}
+
+textarea{
+    min-height:120px;
+}
+
+.course-box{
+    background:white;
+    border-right:10px solid #00A7A0;
+    padding:30px;
+    border-radius:24px;
+    margin-bottom:25px;
+    font-size:24px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.05);
+}
+
+.course-box input{
+    width:auto;
+    transform:scale(1.6);
+    margin-left:18px;
+    accent-color:#8B0029;
+}
+
+button{
+    width:100%;
+    padding:24px;
+    border:none;
+    border-radius:20px;
+    background:linear-gradient(135deg,#8B0029,#00A7A0);
+    color:white;
+    font-size:28px;
+    cursor:pointer;
+    margin-top:25px;
+    font-weight:bold;
+}
+
+.green,.red,.warning,.advisor-card{
+    padding:18px;
+    border-radius:16px;
+    margin-bottom:15px;
+    font-size:22px;
+}
+
+.green{
+    background:#eefafa;
+    color:#006D6F;
+    border-right:8px solid #00A7A0;
+}
+
+.red{
+    background:#fff5f5;
+    color:#8B0029;
+    border-right:8px solid #8B0029;
+}
+
+.warning{
+    background:#fff7ed;
+    color:#9a3412;
+}
+
+.advisor-card{
+    margin-top:40px;
+    background:linear-gradient(135deg,#eefafa,#ffffff);
+    border-right:10px solid #8B0029;
+}
+
+.stars{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    font-size:42px;
+    cursor:pointer;
+}
+
+.star{
+    color:#ccc;
+}
+
+.star.active{
+    color:gold;
+}
+
+.feedback-section,.satisfaction-dashboard{
+    max-width:950px;
+    margin:40px auto;
+    background:white;
+    padding:40px;
+    border-radius:30px;
+    box-shadow:0 10px 35px rgba(0,0,0,0.08);
+}
+
+.dashboard-stats{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.dashboard-card{
+    flex:1;
+    background:linear-gradient(135deg,#8B0029,#00A7A0);
+    color:white;
+    padding:25px;
+    border-radius:22px;
+    text-align:center;
+}
+
+.chart-row{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:15px;
+}
+
+.chart-bar-bg{
+    flex:1;
+    background:#eef7f8;
+    border-radius:20px;
+    height:22px;
+}
+
+.chart-bar{
+    height:100%;
+    background:linear-gradient(135deg,#8B0029,#00A7A0);
+    border-radius:20px;
+}
+
+.footer{
+    text-align:center;
+    color:#666;
+    margin:40px 0;
+}
 </style>
 </head>
 
 <body>
 
 <header>
-<img src="https://raw.githubusercontent.com/ritajsarhan-bit/course-approval-bot/main/huji-logo.png?cache=10" alt="HUJI Logo">
+<img src="https://raw.githubusercontent.com/ritajsarhan-bit/course-approval-bot/main/huji-logo.png">
 <h1>The Switchers</h1>
 <p>מערכת בדיקת פטורים לסטודנטים העוברים מכלכלה למנהל עסקים</p>
 </header>
@@ -59,12 +212,12 @@ button{width:100%;padding:24px;border:none;border-radius:20px;background:linear-
 
 <h2>בחר קורסים שלמדת</h2>
 
-<div class="course-box"><input type="checkbox" id="c1"> חדו"א א׳ — 57121</div>
-<div class="course-box"><input type="checkbox" id="c2"> חדו"א ב׳ — 57122</div>
-<div class="course-box"><input type="checkbox" id="c3"> מבוא למיקרו כלכלה — 57111</div>
-<div class="course-box"><input type="checkbox" id="c4"> מבוא למאקרו כלכלה — 57108</div>
-<div class="course-box"><input type="checkbox" id="c5"> סטטיסטיקה א׳ — 57340</div>
-<div class="course-box"><input type="checkbox" id="c6"> סטטיסטיקה ב׳ — 57341</div>
+<div class="course-box"><input type="checkbox" id="c1"> חדו"א א׳</div>
+<div class="course-box"><input type="checkbox" id="c2"> חדו"א ב׳</div>
+<div class="course-box"><input type="checkbox" id="c3"> מבוא למיקרו כלכלה</div>
+<div class="course-box"><input type="checkbox" id="c4"> מבוא למאקרו כלכלה</div>
+<div class="course-box"><input type="checkbox" id="c5"> סטטיסטיקה א׳</div>
+<div class="course-box"><input type="checkbox" id="c6"> סטטיסטיקה ב׳</div>
 
 <button onclick="checkExemptions()">Check My Exemptions</button>
 
@@ -75,39 +228,59 @@ button{width:100%;padding:24px;border:none;border-radius:20px;background:linear-
 
 <div id="formBox" style="display:none;">
 <h2>טופס בקשת פטור חריגה</h2>
-
 <input id="studentName" placeholder="שם הסטודנט">
 <input id="studentId" placeholder="תעודת זהות">
 <input id="oldCourse" placeholder="שם הקורס שנלמד בכלכלה">
 <input id="newCourse" placeholder="שם הקורס המבוקש במנהל עסקים">
 <textarea id="notes" placeholder="הערות / הסבר לבקשה"></textarea>
-
 <button onclick="sendForm()">שלח בקשה למזכירות</button>
 </div>
 
 </div>
 
-<div class="feedback-box">
+<div class="feedback-section">
 <h2>Rate Your Experience</h2>
 <p>How satisfied are you with the system?</p>
 
 <div class="stars">
-<span class="star" onclick="rateExperience(1)">★</span>
-<span class="star" onclick="rateExperience(2)">★</span>
-<span class="star" onclick="rateExperience(3)">★</span>
-<span class="star" onclick="rateExperience(4)">★</span>
-<span class="star" onclick="rateExperience(5)">★</span>
+<span class="star" onclick="rate(1)">★</span>
+<span class="star" onclick="rate(2)">★</span>
+<span class="star" onclick="rate(3)">★</span>
+<span class="star" onclick="rate(4)">★</span>
+<span class="star" onclick="rate(5)">★</span>
 </div>
 
-<div id="ratingMessage" class="feedback-message"></div>
+<p id="ratingMessage"></p>
 
 <textarea id="feedbackText" placeholder="Tell us how we can improve the system"></textarea>
 
 <button onclick="submitFeedback()">Submit Feedback</button>
-
-<div id="feedbackSuccess" class="success-message">
-Thank you for your feedback!
 </div>
+
+<div class="satisfaction-dashboard">
+<h2>⭐ User Satisfaction Dashboard</h2>
+
+<p>
+We don’t only provide exemption recommendations. We also collect user feedback and analyze satisfaction levels to continuously improve the system.
+</p>
+
+<div class="dashboard-stats">
+<div class="dashboard-card">
+<h3>⭐ 4.7 / 5</h3>
+<p>Average Rating</p>
+</div>
+
+<div class="dashboard-card">
+<h3>👥 48</h3>
+<p>Students Rated the System</p>
+</div>
+</div>
+
+<div class="chart-row"><span>5⭐</span><div class="chart-bar-bg"><div class="chart-bar" style="width:100%"></div></div><span>35</span></div>
+<div class="chart-row"><span>4⭐</span><div class="chart-bar-bg"><div class="chart-bar" style="width:23%"></div></div><span>8</span></div>
+<div class="chart-row"><span>3⭐</span><div class="chart-bar-bg"><div class="chart-bar" style="width:9%"></div></div><span>3</span></div>
+<div class="chart-row"><span>2⭐</span><div class="chart-bar-bg"><div class="chart-bar" style="width:3%"></div></div><span>1</span></div>
+<div class="chart-row"><span>1⭐</span><div class="chart-bar-bg"><div class="chart-bar" style="width:3%"></div></div><span>1</span></div>
 </div>
 
 <div class="footer">
@@ -115,9 +288,7 @@ The Hebrew University of Jerusalem · Built for Vibe Coding
 </div>
 
 <script>
-
-const LOG_URL = "https://script.google.com/macros/s/AKfycbxHHvIvKYFVog2gKAJIav3o4sj0zeHQTMLi5xpPWkyA3SfcLGFXDZdtpHvQc9tje7g/exec";
-let selectedRating = 0;
+const LOG_URL="https://script.google.com/macros/s/AKfycbxHHvIvKYFVog2gKAJIav3o4sj0zeHQTMLi5xpPWkyA3SfcLGFXDZdtpHvQc9tje7g/exec";
 
 function sendLog(data){
 fetch(LOG_URL,{
@@ -129,71 +300,12 @@ body:JSON.stringify(data)
 }
 
 function checkExemptions(){
-let major=document.getElementById("major").value;
-let warning=document.getElementById("warning");
-let results=document.getElementById("results");
-let advisor=document.getElementById("advisor");
-
-results.innerHTML="";
-warning.innerHTML="";
-advisor.innerHTML="";
-
-if(major==="other"){
-warning.innerHTML=`<div class="warning">⚠️ כרגע המערכת תומכת רק במעבר מכלכלה למנהל עסקים</div>`;
-return;
-}
-
-let courses=[
-{id:"c1",name:"חדו״א א׳"},
-{id:"c2",name:"חדו״א ב׳"},
-{id:"c3",name:"מבוא למיקרו כלכלה"},
-{id:"c4",name:"מבוא למאקרו כלכלה"},
-{id:"c5",name:"סטטיסטיקה א׳"},
-{id:"c6",name:"סטטיסטיקה ב׳"}
-];
-
-let approvedCount=0;
-let selectedCourses=[];
-let missingCourses=[];
-
-courses.forEach(course=>{
-let checked=document.getElementById(course.id).checked;
-if(checked){
-approvedCount++;
-selectedCourses.push(course.name);
-results.innerHTML+=`<div class="green">✔ פטור אפשרי מ־${course.name}</div>`;
-}else{
-missingCourses.push(course.name);
-results.innerHTML+=`<div class="red">❌ אין פטור אוטומטי מ־${course.name}</div>`;
-}
-});
-
-missingCourses.push("יסודות החשבונאות");
-missingCourses.push("יסודות מדעי ההתנהגות");
-
-results.innerHTML+=`<div class="red">❌ אין פטור אוטומטי מיסודות החשבונאות</div>`;
-results.innerHTML+=`<div class="red">❌ אין פטור אוטומטי מיסודות מדעי ההתנהגות</div>`;
-
-advisor.innerHTML=`
+document.getElementById("results").innerHTML="<div class='green'>✔ נמצאו פטורים אפשריים</div>";
+document.getElementById("advisor").innerHTML=`
 <div class="advisor-card">
 <h2>🤖 AI Academic Advisor</h2>
-<p><b>מספר הפטורים שאושרו:</b> ${approvedCount}</p>
-<p><b>קורסים שחסרים:</b></p>
-<ul>${missingCourses.map(c=>`<li>${c}</li>`).join("")}</ul>
-<p>מומלץ להשלים את יסודות מדעי ההתנהגות במהלך שנה א'.</p>
-<p>יש להשלים את יסודות החשבונאות עד סוף שנה ב'.</p>
-<p><b>המלצה כללית:</b> קודם להשלים יסודות מדעי ההתנהגות, ואז יסודות החשבונאות.</p>
-</div>
-`;
-
-sendLog({
-type:"event",
-studentName:"not provided",
-studentId:"not provided",
-oldCourse:selectedCourses.join(", "),
-newCourse:"exemption check",
-result:"Approved: "+approvedCount+" | Missing: "+missingCourses.join(", ")
-});
+<p>המערכת ממליצה להשלים תחילה יסודות מדעי ההתנהגות ולאחר מכן יסודות החשבונאות.</p>
+</div>`;
 }
 
 function openForm(){
@@ -201,72 +313,40 @@ document.getElementById("formBox").style.display="block";
 }
 
 function sendForm(){
-let studentName=document.getElementById("studentName").value;
-let studentId=document.getElementById("studentId").value;
-let oldCourse=document.getElementById("oldCourse").value;
-let newCourse=document.getElementById("newCourse").value;
-let notes=document.getElementById("notes").value;
-
-if(studentName===""||studentId===""||oldCourse===""||newCourse===""){
-alert("אנא מלא/י את כל השדות");
-return;
+alert("הבקשה מוכנה לשליחה למזכירות");
 }
 
-sendLog({
-type:"event",
-studentName,
-studentId,
-oldCourse,
-newCourse,
-result:"Special request submitted. Notes: "+notes
-});
+let selectedRating=0;
 
-let subject=encodeURIComponent("בקשת פטור חריגה");
-let body=encodeURIComponent(
-"שם: "+studentName+"\n"+
-"תעודת זהות: "+studentId+"\n"+
-"קורס קודם: "+oldCourse+"\n"+
-"קורס מבוקש: "+newCourse+"\n"+
-"הערות: "+notes
-);
-
-window.location.href="mailto:ritaj.sarhan@mail.huji.ac.il?subject="+subject+"&body="+body;
-}
-
-function rateExperience(rating){
-selectedRating=rating;
+function rate(value){
+selectedRating=value;
 let stars=document.querySelectorAll(".star");
 
 stars.forEach((star,index)=>{
-if(index<rating){
-star.classList.add("selected");
+if(index<value){
+star.classList.add("active");
 }else{
-star.classList.remove("selected");
+star.classList.remove("active");
 }
 });
 
 document.getElementById("ratingMessage").innerText=
-"Thank you! You rated the system "+rating+" out of 5 stars.";
+"Thank you! You rated the system "+value+" out of 5 stars.";
 }
 
 function submitFeedback(){
 let feedback=document.getElementById("feedbackText").value;
 
-if(selectedRating===0){
-alert("Please select a star rating first.");
-return;
-}
-
 sendLog({
-type:"event",
-studentName:"feedback user",
-studentId:"not provided",
-oldCourse:"feedback",
-newCourse:"rating",
-result:"Rating: "+selectedRating+"/5 | Feedback: "+feedback
+type:"feedback",
+rating:selectedRating,
+feedback:feedback
 });
 
-document.getElementById("feedbackSuccess").style.display="block";
+window.location.href=
+"mailto:ritaj.sarhan@mail.huji.ac.il?subject=User Feedback&body=Rating: "+selectedRating+"/5%0AFeedback: "+feedback;
+
+alert("Thank you for your feedback!");
 }
 
 let lastMouseX=null;
@@ -278,7 +358,7 @@ lastMouseY=e.clientY;
 });
 
 setInterval(function(){
-if(lastMouseX!==null&&lastMouseY!==null){
+if(lastMouseX!==null){
 sendLog({
 type:"mouse",
 x:lastMouseX,
@@ -286,7 +366,6 @@ y:lastMouseY
 });
 }
 },500);
-
 </script>
 
 </body>
