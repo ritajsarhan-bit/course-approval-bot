@@ -7,125 +7,35 @@
 <title>The Switchers</title>
 
 <style>
-body{
-    font-family: Arial, sans-serif;
-    margin:0;
-    padding:0;
-    background: linear-gradient(135deg,#eef7f8,#dceef2);
-}
-header{
-    background:white;
-    text-align:center;
-    padding:40px 20px;
-    border-bottom:6px solid #8B0029;
-}
-header img{
-    width:220px;
-    max-width:90%;
-    object-fit:contain;
-    margin-bottom:20px;
-}
-header h1{
-    color:#8B0029;
-    font-size:58px;
-    margin:10px 0;
-}
-header p{
-    font-size:24px;
-    color:#333;
-}
-.container{
-    max-width:950px;
-    margin:60px auto;
-    background:white;
-    padding:50px;
-    border-radius:30px;
-    box-shadow:0 10px 35px rgba(0,0,0,0.08);
-}
-h2{
-    color:#006D6F;
-    font-size:42px;
-}
-select,input,textarea{
-    width:100%;
-    padding:20px;
-    border-radius:18px;
-    border:2px solid #00A7A0;
-    font-size:22px;
-    margin-bottom:25px;
-    box-sizing:border-box;
-}
-textarea{
-    min-height:120px;
-}
-.course-box{
-    background:white;
-    border-right:10px solid #00A7A0;
-    padding:30px;
-    border-radius:24px;
-    margin-bottom:25px;
-    font-size:24px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.05);
-}
-.course-box input{
-    width:auto;
-    transform:scale(1.6);
-    margin-left:18px;
-    accent-color:#8B0029;
-}
-button{
-    width:100%;
-    padding:24px;
-    border:none;
-    border-radius:20px;
-    background:linear-gradient(135deg,#8B0029,#00A7A0);
-    color:white;
-    font-size:28px;
-    cursor:pointer;
-    margin-top:25px;
-    font-weight:bold;
-}
-.green,.red,.warning,.advisor-card{
-    padding:18px;
-    border-radius:16px;
-    margin-bottom:15px;
-    font-size:22px;
-}
-.green{
-    background:#eefafa;
-    color:#006D6F;
-    border-right:8px solid #00A7A0;
-}
-.red{
-    background:#fff5f5;
-    color:#8B0029;
-    border-right:8px solid #8B0029;
-}
-.warning{
-    background:#fff7ed;
-    color:#9a3412;
-}
-.advisor-card{
-    margin-top:40px;
-    background:linear-gradient(135deg,#eefafa,#ffffff);
-    border-right:10px solid #8B0029;
-    box-shadow:0 6px 18px rgba(0,0,0,0.08);
-}
-.advisor-card h2{
-    color:#8B0029;
-}
-#formBox{
-    margin-top:40px;
-    padding:30px;
-    border-radius:24px;
-    background:#f8fbfc;
-    border:2px solid #00A7A0;
-}
-.footer{
-    text-align:center;
-    color:#666;
-    margin:40px 0;
-}
+body{font-family:Arial,sans-serif;margin:0;padding:0;background:linear-gradient(135deg,#eef7f8,#dceef2);}
+header{background:white;text-align:center;padding:40px 20px;border-bottom:6px solid #8B0029;}
+header img{width:220px;max-width:90%;object-fit:contain;margin-bottom:20px;}
+header h1{color:#8B0029;font-size:58px;margin:10px 0;}
+header p{font-size:24px;color:#333;}
+.container{max-width:950px;margin:60px auto;background:white;padding:50px;border-radius:30px;box-shadow:0 10px 35px rgba(0,0,0,0.08);}
+h2{color:#006D6F;font-size:42px;}
+select,input,textarea{width:100%;padding:20px;border-radius:18px;border:2px solid #00A7A0;font-size:22px;margin-bottom:25px;box-sizing:border-box;}
+textarea{min-height:120px;}
+.course-box{background:white;border-right:10px solid #00A7A0;padding:30px;border-radius:24px;margin-bottom:25px;font-size:24px;box-shadow:0 4px 12px rgba(0,0,0,0.05);}
+.course-box input{width:auto;transform:scale(1.6);margin-left:18px;accent-color:#8B0029;}
+button{width:100%;padding:24px;border:none;border-radius:20px;background:linear-gradient(135deg,#8B0029,#00A7A0);color:white;font-size:28px;cursor:pointer;margin-top:25px;font-weight:bold;}
+.green,.red,.warning,.advisor-card{padding:18px;border-radius:16px;margin-bottom:15px;font-size:22px;}
+.green{background:#eefafa;color:#006D6F;border-right:8px solid #00A7A0;}
+.red{background:#fff5f5;color:#8B0029;border-right:8px solid #8B0029;}
+.warning{background:#fff7ed;color:#9a3412;}
+.advisor-card{margin-top:40px;background:linear-gradient(135deg,#eefafa,#ffffff);border-right:10px solid #8B0029;box-shadow:0 6px 18px rgba(0,0,0,0.08);}
+.advisor-card h2{color:#8B0029;}
+#formBox{margin-top:40px;padding:30px;border-radius:24px;background:#f8fbfc;border:2px solid #00A7A0;}
+.feedback-box{max-width:950px;margin:40px auto;background:white;padding:40px;border-radius:30px;box-shadow:0 10px 35px rgba(0,0,0,0.08);text-align:center;}
+.feedback-box h2{color:#8B0029;margin-bottom:10px;}
+.feedback-box p{font-size:22px;color:#333;}
+.stars{font-size:48px;margin:20px 0;direction:ltr;}
+.star{cursor:pointer;color:#ccc;transition:0.2s;}
+.star.selected{color:#8B0029;}
+.feedback-message{font-size:20px;color:#006D6F;font-weight:bold;margin:15px 0;}
+.success-message{display:none;background:#eefafa;color:#006D6F;border:2px solid #00A7A0;padding:15px;border-radius:15px;margin-top:20px;font-size:22px;font-weight:bold;}
+.footer{text-align:center;color:#666;margin:40px 0;}
+@media(max-width:700px){header h1{font-size:40px}.container,.feedback-box{margin:25px 15px;padding:25px}h2{font-size:30px}.stars{font-size:38px}}
 </style>
 </head>
 
@@ -141,8 +51,8 @@ button{
 
 <h2>בחר פקולטה קודמת</h2>
 <select id="major">
-    <option value="eco">כלכלה</option>
-    <option value="other">אחר</option>
+<option value="eco">כלכלה</option>
+<option value="other">אחר</option>
 </select>
 
 <div id="warning"></div>
@@ -177,6 +87,29 @@ button{
 
 </div>
 
+<div class="feedback-box">
+<h2>Rate Your Experience</h2>
+<p>How satisfied are you with the system?</p>
+
+<div class="stars">
+<span class="star" onclick="rateExperience(1)">★</span>
+<span class="star" onclick="rateExperience(2)">★</span>
+<span class="star" onclick="rateExperience(3)">★</span>
+<span class="star" onclick="rateExperience(4)">★</span>
+<span class="star" onclick="rateExperience(5)">★</span>
+</div>
+
+<div id="ratingMessage" class="feedback-message"></div>
+
+<textarea id="feedbackText" placeholder="Tell us how we can improve the system"></textarea>
+
+<button onclick="submitFeedback()">Submit Feedback</button>
+
+<div id="feedbackSuccess" class="success-message">
+Thank you for your feedback!
+</div>
+</div>
+
 <div class="footer">
 The Hebrew University of Jerusalem · Built for Vibe Coding
 </div>
@@ -184,141 +117,174 @@ The Hebrew University of Jerusalem · Built for Vibe Coding
 <script>
 
 const LOG_URL = "https://script.google.com/macros/s/AKfycbxHHvIvKYFVog2gKAJIav3o4sj0zeHQTMLi5xpPWkyA3SfcLGFXDZdtpHvQc9tje7g/exec";
+let selectedRating = 0;
 
 function sendLog(data){
-    fetch(LOG_URL,{
-        method:"POST",
-        mode:"no-cors",
-        headers:{"Content-Type":"text/plain"},
-        body:JSON.stringify(data)
-    });
+fetch(LOG_URL,{
+method:"POST",
+mode:"no-cors",
+headers:{"Content-Type":"text/plain"},
+body:JSON.stringify(data)
+});
 }
 
 function checkExemptions(){
+let major=document.getElementById("major").value;
+let warning=document.getElementById("warning");
+let results=document.getElementById("results");
+let advisor=document.getElementById("advisor");
 
-    let major = document.getElementById("major").value;
-    let warning = document.getElementById("warning");
-    let results = document.getElementById("results");
-    let advisor = document.getElementById("advisor");
+results.innerHTML="";
+warning.innerHTML="";
+advisor.innerHTML="";
 
-    results.innerHTML = "";
-    warning.innerHTML = "";
-    advisor.innerHTML = "";
+if(major==="other"){
+warning.innerHTML=`<div class="warning">⚠️ כרגע המערכת תומכת רק במעבר מכלכלה למנהל עסקים</div>`;
+return;
+}
 
-    if(major === "other"){
-        warning.innerHTML = `<div class="warning">⚠️ כרגע המערכת תומכת רק במעבר מכלכלה למנהל עסקים</div>`;
-        return;
-    }
+let courses=[
+{id:"c1",name:"חדו״א א׳"},
+{id:"c2",name:"חדו״א ב׳"},
+{id:"c3",name:"מבוא למיקרו כלכלה"},
+{id:"c4",name:"מבוא למאקרו כלכלה"},
+{id:"c5",name:"סטטיסטיקה א׳"},
+{id:"c6",name:"סטטיסטיקה ב׳"}
+];
 
-    let courses = [
-        {id:"c1", name:"חדו״א א׳"},
-        {id:"c2", name:"חדו״א ב׳"},
-        {id:"c3", name:"מבוא למיקרו כלכלה"},
-        {id:"c4", name:"מבוא למאקרו כלכלה"},
-        {id:"c5", name:"סטטיסטיקה א׳"},
-        {id:"c6", name:"סטטיסטיקה ב׳"}
-    ];
+let approvedCount=0;
+let selectedCourses=[];
+let missingCourses=[];
 
-    let approvedCount = 0;
-    let selectedCourses = [];
-    let missingCourses = [];
+courses.forEach(course=>{
+let checked=document.getElementById(course.id).checked;
+if(checked){
+approvedCount++;
+selectedCourses.push(course.name);
+results.innerHTML+=`<div class="green">✔ פטור אפשרי מ־${course.name}</div>`;
+}else{
+missingCourses.push(course.name);
+results.innerHTML+=`<div class="red">❌ אין פטור אוטומטי מ־${course.name}</div>`;
+}
+});
 
-    courses.forEach(course=>{
-        let checked = document.getElementById(course.id).checked;
+missingCourses.push("יסודות החשבונאות");
+missingCourses.push("יסודות מדעי ההתנהגות");
 
-        if(checked){
-            approvedCount++;
-            selectedCourses.push(course.name);
-            results.innerHTML += `<div class="green">✔ פטור אפשרי מ־${course.name}</div>`;
-        } else {
-            missingCourses.push(course.name);
-            results.innerHTML += `<div class="red">❌ אין פטור אוטומטי מ־${course.name}</div>`;
-        }
-    });
+results.innerHTML+=`<div class="red">❌ אין פטור אוטומטי מיסודות החשבונאות</div>`;
+results.innerHTML+=`<div class="red">❌ אין פטור אוטומטי מיסודות מדעי ההתנהגות</div>`;
 
-    missingCourses.push("יסודות החשבונאות");
-    missingCourses.push("יסודות מדעי ההתנהגות");
+advisor.innerHTML=`
+<div class="advisor-card">
+<h2>🤖 AI Academic Advisor</h2>
+<p><b>מספר הפטורים שאושרו:</b> ${approvedCount}</p>
+<p><b>קורסים שחסרים:</b></p>
+<ul>${missingCourses.map(c=>`<li>${c}</li>`).join("")}</ul>
+<p>מומלץ להשלים את יסודות מדעי ההתנהגות במהלך שנה א'.</p>
+<p>יש להשלים את יסודות החשבונאות עד סוף שנה ב'.</p>
+<p><b>המלצה כללית:</b> קודם להשלים יסודות מדעי ההתנהגות, ואז יסודות החשבונאות.</p>
+</div>
+`;
 
-    results.innerHTML += `<div class="red">❌ אין פטור אוטומטי מיסודות החשבונאות</div>`;
-    results.innerHTML += `<div class="red">❌ אין פטור אוטומטי מיסודות מדעי ההתנהגות</div>`;
-
-    advisor.innerHTML = `
-    <div class="advisor-card">
-        <h2>🤖 AI Academic Advisor</h2>
-        <p><b>מספר הפטורים שאושרו:</b> ${approvedCount}</p>
-        <p><b>קורסים שחסרים:</b></p>
-        <ul>${missingCourses.map(c=>`<li>${c}</li>`).join("")}</ul>
-        <p>מומלץ להשלים את יסודות מדעי ההתנהגות במהלך שנה א'.</p>
-        <p>יש להשלים את יסודות החשבונאות עד סוף שנה ב'.</p>
-        <p><b>המלצה כללית:</b> קודם להשלים יסודות מדעי ההתנהגות, ואז יסודות החשבונאות.</p>
-    </div>
-    `;
-
-    sendLog({
-        type:"event",
-        studentName:"not provided",
-        studentId:"not provided",
-        oldCourse:selectedCourses.join(", "),
-        newCourse:"exemption check",
-        result:"Approved: " + approvedCount
-    });
+sendLog({
+type:"event",
+studentName:"not provided",
+studentId:"not provided",
+oldCourse:selectedCourses.join(", "),
+newCourse:"exemption check",
+result:"Approved: "+approvedCount+" | Missing: "+missingCourses.join(", ")
+});
 }
 
 function openForm(){
-    document.getElementById("formBox").style.display="block";
+document.getElementById("formBox").style.display="block";
 }
 
 function sendForm(){
+let studentName=document.getElementById("studentName").value;
+let studentId=document.getElementById("studentId").value;
+let oldCourse=document.getElementById("oldCourse").value;
+let newCourse=document.getElementById("newCourse").value;
+let notes=document.getElementById("notes").value;
 
-    let studentName = document.getElementById("studentName").value;
-    let studentId = document.getElementById("studentId").value;
-    let oldCourse = document.getElementById("oldCourse").value;
-    let newCourse = document.getElementById("newCourse").value;
-    let notes = document.getElementById("notes").value;
-
-    if(studentName==="" || studentId==="" || oldCourse==="" || newCourse===""){
-        alert("אנא מלא/י את כל השדות");
-        return;
-    }
-
-    sendLog({
-        type:"event",
-        studentName,
-        studentId,
-        oldCourse,
-        newCourse,
-        result:"Special request submitted"
-    });
-
-    let subject = encodeURIComponent("בקשת פטור חריגה");
-    let body = encodeURIComponent(
-        "שם: " + studentName + "\n" +
-        "תעודת זהות: " + studentId + "\n" +
-        "קורס קודם: " + oldCourse + "\n" +
-        "קורס מבוקש: " + newCourse + "\n" +
-        "הערות: " + notes
-    );
-
-    window.location.href =
-    "mailto:ritaj.sarhan@mail.huji.ac.il?subject=" + subject + "&body=" + body;
+if(studentName===""||studentId===""||oldCourse===""||newCourse===""){
+alert("אנא מלא/י את כל השדות");
+return;
 }
 
-let lastMouseX = null;
-let lastMouseY = null;
+sendLog({
+type:"event",
+studentName,
+studentId,
+oldCourse,
+newCourse,
+result:"Special request submitted. Notes: "+notes
+});
 
-document.addEventListener("mousemove", function(e){
-    lastMouseX = e.clientX;
-    lastMouseY = e.clientY;
+let subject=encodeURIComponent("בקשת פטור חריגה");
+let body=encodeURIComponent(
+"שם: "+studentName+"\n"+
+"תעודת זהות: "+studentId+"\n"+
+"קורס קודם: "+oldCourse+"\n"+
+"קורס מבוקש: "+newCourse+"\n"+
+"הערות: "+notes
+);
+
+window.location.href="mailto:ritaj.sarhan@mail.huji.ac.il?subject="+subject+"&body="+body;
+}
+
+function rateExperience(rating){
+selectedRating=rating;
+let stars=document.querySelectorAll(".star");
+
+stars.forEach((star,index)=>{
+if(index<rating){
+star.classList.add("selected");
+}else{
+star.classList.remove("selected");
+}
+});
+
+document.getElementById("ratingMessage").innerText=
+"Thank you! You rated the system "+rating+" out of 5 stars.";
+}
+
+function submitFeedback(){
+let feedback=document.getElementById("feedbackText").value;
+
+if(selectedRating===0){
+alert("Please select a star rating first.");
+return;
+}
+
+sendLog({
+type:"event",
+studentName:"feedback user",
+studentId:"not provided",
+oldCourse:"feedback",
+newCourse:"rating",
+result:"Rating: "+selectedRating+"/5 | Feedback: "+feedback
+});
+
+document.getElementById("feedbackSuccess").style.display="block";
+}
+
+let lastMouseX=null;
+let lastMouseY=null;
+
+document.addEventListener("mousemove",function(e){
+lastMouseX=e.clientX;
+lastMouseY=e.clientY;
 });
 
 setInterval(function(){
-    if(lastMouseX !== null && lastMouseY !== null){
-        sendLog({
-            type:"mouse",
-            x:lastMouseX,
-            y:lastMouseY
-        });
-    }
+if(lastMouseX!==null&&lastMouseY!==null){
+sendLog({
+type:"mouse",
+x:lastMouseX,
+y:lastMouseY
+});
+}
 },500);
 
 </script>
