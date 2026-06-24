@@ -259,28 +259,7 @@ button{
 
 <div class="satisfaction-dashboard">
 <h2>⭐ User Satisfaction Dashboard</h2>
-
-<p>
-We don’t only provide exemption recommendations. We also collect user feedback and analyze satisfaction levels to continuously improve the system.
-</p>
-
-<div class="dashboard-stats">
-<div class="dashboard-card">
-<h3>⭐ 4.7 / 5</h3>
-<p>Average Rating</p>
-</div>
-
-<div class="dashboard-card">
-<h3>👥 48</h3>
-<p>Students Rated the System</p>
-</div>
-</div>
-
-<div class="chart-row"><span>5⭐</span><div class="chart-bar-bg"><div class="chart-bar" style="width:100%"></div></div><span>35</span></div>
-<div class="chart-row"><span>4⭐</span><div class="chart-bar-bg"><div class="chart-bar" style="width:23%"></div></div><span>8</span></div>
-<div class="chart-row"><span>3⭐</span><div class="chart-bar-bg"><div class="chart-bar" style="width:9%"></div></div><span>3</span></div>
-<div class="chart-row"><span>2⭐</span><div class="chart-bar-bg"><div class="chart-bar" style="width:3%"></div></div><span>1</span></div>
-<div class="chart-row"><span>1⭐</span><div class="chart-bar-bg"><div class="chart-bar" style="width:3%"></div></div><span>1</span></div>
+<p>We don’t only provide exemption recommendations. We also collect user feedback and analyze satisfaction levels to continuously improve the system.</p>
 </div>
 
 <div class="footer">
@@ -313,7 +292,41 @@ document.getElementById("formBox").style.display="block";
 }
 
 function sendForm(){
-alert("הבקשה מוכנה לשליחה למזכירות");
+let studentName=document.getElementById("studentName").value;
+let studentId=document.getElementById("studentId").value;
+let oldCourse=document.getElementById("oldCourse").value;
+let newCourse=document.getElementById("newCourse").value;
+let notes=document.getElementById("notes").value;
+
+if(studentName===""||studentId===""||oldCourse===""||newCourse===""){
+alert("אנא מלא/י את כל השדות לפני שליחת הבקשה");
+return;
+}
+
+sendLog({
+type:"special exemption request",
+studentName,
+studentId,
+oldCourse,
+newCourse,
+notes
+});
+
+let subject=encodeURIComponent("בקשת פטור חריגה");
+
+let body=encodeURIComponent(
+"שלום,\n\n"+
+"אבקש לבדוק בקשת פטור חריגה.\n\n"+
+"שם הסטודנט: "+studentName+"\n"+
+"תעודת זהות: "+studentId+"\n"+
+"קורס שנלמד בכלכלה: "+oldCourse+"\n"+
+"קורס מבוקש במנהל עסקים: "+newCourse+"\n"+
+"הערות: "+notes+"\n\n"+
+"תודה."
+);
+
+window.location.href=
+"mailto:ritaj.sarhan@mail.huji.ac.il?subject="+subject+"&body="+body;
 }
 
 let selectedRating=0;
@@ -345,8 +358,6 @@ feedback:feedback
 
 window.location.href=
 "mailto:ritaj.sarhan@mail.huji.ac.il?subject=User Feedback&body=Rating: "+selectedRating+"/5%0AFeedback: "+feedback;
-
-alert("Thank you for your feedback!");
 }
 
 let lastMouseX=null;
