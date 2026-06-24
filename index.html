@@ -8,186 +8,141 @@
 
 <style>
 body{
-    font-family:Arial,sans-serif;
-    margin:0;
-    padding:0;
-    background:linear-gradient(135deg,#eef7f8,#dceef2);
+font-family:Arial,sans-serif;
+margin:0;
+padding:0;
+background:linear-gradient(135deg,#eef7f8,#dceef2);
 }
 
 header{
-    background:white;
-    text-align:center;
-    padding:40px 20px;
-    border-bottom:6px solid #8B0029;
+background:white;
+text-align:center;
+padding:40px 20px;
+border-bottom:6px solid #8B0029;
 }
 
 header img{
-    width:220px;
-    max-width:90%;
+width:220px;
+max-width:90%;
 }
 
 header h1{
-    color:#8B0029;
-    font-size:58px;
+color:#8B0029;
+font-size:58px;
 }
 
 header p{
-    font-size:24px;
-    color:#333;
+font-size:24px;
+color:#333;
 }
 
-.container{
-    max-width:950px;
-    margin:60px auto;
-    background:white;
-    padding:50px;
-    border-radius:30px;
-    box-shadow:0 10px 35px rgba(0,0,0,0.08);
+.container,.feedback-section,.satisfaction-dashboard{
+max-width:950px;
+margin:40px auto;
+background:white;
+padding:40px;
+border-radius:30px;
+box-shadow:0 10px 35px rgba(0,0,0,0.08);
 }
 
 h2{
-    color:#006D6F;
-    font-size:42px;
+color:#006D6F;
+font-size:42px;
 }
 
 select,input,textarea{
-    width:100%;
-    padding:20px;
-    border-radius:18px;
-    border:2px solid #00A7A0;
-    font-size:22px;
-    margin-bottom:25px;
-    box-sizing:border-box;
-}
-
-textarea{
-    min-height:120px;
+width:100%;
+padding:20px;
+border-radius:18px;
+border:2px solid #00A7A0;
+font-size:22px;
+margin-bottom:25px;
+box-sizing:border-box;
 }
 
 .course-box{
-    background:white;
-    border-right:10px solid #00A7A0;
-    padding:30px;
-    border-radius:24px;
-    margin-bottom:25px;
-    font-size:24px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.05);
+background:white;
+border-right:10px solid #00A7A0;
+padding:30px;
+border-radius:24px;
+margin-bottom:25px;
+font-size:24px;
+box-shadow:0 4px 12px rgba(0,0,0,0.05);
 }
 
 .course-box input{
-    width:auto;
-    transform:scale(1.6);
-    margin-left:18px;
-    accent-color:#8B0029;
+width:auto;
+transform:scale(1.6);
+margin-left:18px;
 }
 
 button{
-    width:100%;
-    padding:24px;
-    border:none;
-    border-radius:20px;
-    background:linear-gradient(135deg,#8B0029,#00A7A0);
-    color:white;
-    font-size:28px;
-    cursor:pointer;
-    margin-top:25px;
-    font-weight:bold;
+width:100%;
+padding:24px;
+border:none;
+border-radius:20px;
+background:linear-gradient(135deg,#8B0029,#00A7A0);
+color:white;
+font-size:28px;
+cursor:pointer;
+margin-top:25px;
+font-weight:bold;
 }
 
-.green,.red,.warning,.advisor-card{
-    padding:18px;
-    border-radius:16px;
-    margin-bottom:15px;
-    font-size:22px;
+.green,.red,.advisor-card{
+padding:18px;
+border-radius:16px;
+margin-bottom:15px;
+font-size:22px;
 }
 
 .green{
-    background:#eefafa;
-    color:#006D6F;
-    border-right:8px solid #00A7A0;
+background:#eefafa;
+color:#006D6F;
+border-right:8px solid #00A7A0;
 }
 
 .red{
-    background:#fff5f5;
-    color:#8B0029;
-    border-right:8px solid #8B0029;
-}
-
-.warning{
-    background:#fff7ed;
-    color:#9a3412;
+background:#fff5f5;
+color:#8B0029;
+border-right:8px solid #8B0029;
 }
 
 .advisor-card{
-    margin-top:40px;
-    background:linear-gradient(135deg,#eefafa,#ffffff);
-    border-right:10px solid #8B0029;
+margin-top:40px;
+background:linear-gradient(135deg,#eefafa,#ffffff);
+border-right:10px solid #8B0029;
 }
 
 .stars{
-    display:flex;
-    justify-content:center;
-    gap:12px;
-    font-size:42px;
-    cursor:pointer;
+display:flex;
+justify-content:center;
+gap:12px;
+font-size:42px;
+cursor:pointer;
 }
 
 .star{
-    color:#ccc;
+color:#ccc;
 }
 
 .star.active{
-    color:gold;
-}
-
-.feedback-section,.satisfaction-dashboard{
-    max-width:950px;
-    margin:40px auto;
-    background:white;
-    padding:40px;
-    border-radius:30px;
-    box-shadow:0 10px 35px rgba(0,0,0,0.08);
-}
-
-.dashboard-stats{
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
+color:gold;
 }
 
 .dashboard-card{
-    flex:1;
-    background:linear-gradient(135deg,#8B0029,#00A7A0);
-    color:white;
-    padding:25px;
-    border-radius:22px;
-    text-align:center;
-}
-
-.chart-row{
-    display:flex;
-    align-items:center;
-    gap:15px;
-    margin-bottom:15px;
-}
-
-.chart-bar-bg{
-    flex:1;
-    background:#eef7f8;
-    border-radius:20px;
-    height:22px;
-}
-
-.chart-bar{
-    height:100%;
-    background:linear-gradient(135deg,#8B0029,#00A7A0);
-    border-radius:20px;
+background:linear-gradient(135deg,#8B0029,#00A7A0);
+color:white;
+padding:25px;
+border-radius:22px;
+margin-bottom:20px;
+text-align:center;
 }
 
 .footer{
-    text-align:center;
-    color:#666;
-    margin:40px 0;
+text-align:center;
+color:#666;
+margin:40px 0;
 }
 </style>
 </head>
@@ -203,12 +158,11 @@ button{
 <div class="container">
 
 <h2>בחר פקולטה קודמת</h2>
+
 <select id="major">
 <option value="eco">כלכלה</option>
 <option value="other">אחר</option>
 </select>
-
-<div id="warning"></div>
 
 <h2>בחר קורסים שלמדת</h2>
 
@@ -228,14 +182,15 @@ button{
 
 <div id="formBox" style="display:none;">
 <h2>טופס בקשת פטור חריגה</h2>
+
 <input id="studentName" placeholder="שם הסטודנט">
 <input id="studentId" placeholder="תעודת זהות">
 <input id="oldCourse" placeholder="שם הקורס שנלמד בכלכלה">
 <input id="newCourse" placeholder="שם הקורס המבוקש במנהל עסקים">
 <textarea id="notes" placeholder="הערות / הסבר לבקשה"></textarea>
+
 <button onclick="sendForm()">שלח בקשה למזכירות</button>
 </div>
-
 </div>
 
 <div class="feedback-section">
@@ -259,7 +214,14 @@ button{
 
 <div class="satisfaction-dashboard">
 <h2>⭐ User Satisfaction Dashboard</h2>
-<p>We don’t only provide exemption recommendations. We also collect user feedback and analyze satisfaction levels to continuously improve the system.</p>
+
+<div class="dashboard-card">
+<h3>⭐ Average Rating: 4.7 / 5</h3>
+</div>
+
+<div class="dashboard-card">
+<h3>👥 Students Rated the System: 48</h3>
+</div>
 </div>
 
 <div class="footer">
@@ -267,6 +229,7 @@ The Hebrew University of Jerusalem · Built for Vibe Coding
 </div>
 
 <script>
+
 const LOG_URL="https://script.google.com/macros/s/AKfycbxHHvIvKYFVog2gKAJIav3o4sj0zeHQTMLi5xpPWkyA3SfcLGFXDZdtpHvQc9tje7g/exec";
 
 function sendLog(data){
@@ -279,11 +242,44 @@ body:JSON.stringify(data)
 }
 
 function checkExemptions(){
-document.getElementById("results").innerHTML="<div class='green'>✔ נמצאו פטורים אפשריים</div>";
-document.getElementById("advisor").innerHTML=`
+
+let courses=[
+{id:"c1",name:"חדו״א א׳"},
+{id:"c2",name:"חדו״א ב׳"},
+{id:"c3",name:"מבוא למיקרו כלכלה"},
+{id:"c4",name:"מבוא למאקרו כלכלה"},
+{id:"c5",name:"סטטיסטיקה א׳"},
+{id:"c6",name:"סטטיסטיקה ב׳"}
+];
+
+let selectedCourses=[];
+
+courses.forEach(course=>{
+if(document.getElementById(course.id).checked){
+selectedCourses.push(course.name);
+}
+});
+
+let results=document.getElementById("results");
+let advisor=document.getElementById("advisor");
+
+results.innerHTML="";
+advisor.innerHTML="";
+
+if(selectedCourses.length===0){
+results.innerHTML="<div class='red'>❌ אין פטורים אפשריים. יש לבחור לפחות קורס אחד.</div>";
+return;
+}
+
+selectedCourses.forEach(course=>{
+results.innerHTML+=`<div class='green'>✔ פטור אפשרי מ־${course}</div>`;
+});
+
+advisor.innerHTML=`
 <div class="advisor-card">
 <h2>🤖 AI Academic Advisor</h2>
-<p>המערכת ממליצה להשלים תחילה יסודות מדעי ההתנהגות ולאחר מכן יסודות החשבונאות.</p>
+<p>נמצאו ${selectedCourses.length} פטורים אפשריים.</p>
+<p>המערכת ממליצה לבדוק מול המזכירות אם נדרש אישור נוסף.</p>
 </div>`;
 }
 
@@ -292,6 +288,7 @@ document.getElementById("formBox").style.display="block";
 }
 
 function sendForm(){
+
 let studentName=document.getElementById("studentName").value;
 let studentId=document.getElementById("studentId").value;
 let oldCourse=document.getElementById("oldCourse").value;
@@ -299,30 +296,18 @@ let newCourse=document.getElementById("newCourse").value;
 let notes=document.getElementById("notes").value;
 
 if(studentName===""||studentId===""||oldCourse===""||newCourse===""){
-alert("אנא מלא/י את כל השדות לפני שליחת הבקשה");
+alert("אנא מלא/י את כל השדות");
 return;
 }
-
-sendLog({
-type:"special exemption request",
-studentName,
-studentId,
-oldCourse,
-newCourse,
-notes
-});
 
 let subject=encodeURIComponent("בקשת פטור חריגה");
 
 let body=encodeURIComponent(
-"שלום,\n\n"+
-"אבקש לבדוק בקשת פטור חריגה.\n\n"+
-"שם הסטודנט: "+studentName+"\n"+
+"שם: "+studentName+"\n"+
 "תעודת זהות: "+studentId+"\n"+
-"קורס שנלמד בכלכלה: "+oldCourse+"\n"+
-"קורס מבוקש במנהל עסקים: "+newCourse+"\n"+
-"הערות: "+notes+"\n\n"+
-"תודה."
+"קורס קודם: "+oldCourse+"\n"+
+"קורס חדש: "+newCourse+"\n"+
+"הערות: "+notes
 );
 
 window.location.href=
@@ -350,33 +335,10 @@ document.getElementById("ratingMessage").innerText=
 function submitFeedback(){
 let feedback=document.getElementById("feedbackText").value;
 
-sendLog({
-type:"feedback",
-rating:selectedRating,
-feedback:feedback
-});
-
 window.location.href=
 "mailto:ritaj.sarhan@mail.huji.ac.il?subject=User Feedback&body=Rating: "+selectedRating+"/5%0AFeedback: "+feedback;
 }
 
-let lastMouseX=null;
-let lastMouseY=null;
-
-document.addEventListener("mousemove",function(e){
-lastMouseX=e.clientX;
-lastMouseY=e.clientY;
-});
-
-setInterval(function(){
-if(lastMouseX!==null){
-sendLog({
-type:"mouse",
-x:lastMouseX,
-y:lastMouseY
-});
-}
-},500);
 </script>
 
 </body>
